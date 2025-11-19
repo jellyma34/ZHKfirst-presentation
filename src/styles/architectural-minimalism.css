@@ -1,0 +1,331 @@
+/* Architectural Minimalism Design System */
+
+/* Color Palette */
+:root {
+  --primary-bg: #EEF1F4;
+  --secondary-bg: #FFFFFF;
+  --surface: #E8EBEE;
+  --surface-light: #DDE1E7;
+  --surface-dark: #B7BBC3;
+  --accent: #5F758D;
+  --text-primary: #5F758D;
+  --text-secondary: #B7BBC3;
+  --text-muted: #DDE1E7;
+}
+
+/* Base Styles */
+.architectural-minimalism {
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  font-family: 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+}
+
+/* Neumorphic Elements */
+.neumorph-light {
+  background: var(--surface);
+  box-shadow: 8px 8px 16px var(--surface-light), -8px -8px 16px var(--secondary-bg);
+  border-radius: 24px;
+}
+
+.neumorph-light-lg {
+  background: var(--surface);
+  box-shadow: 12px 12px 24px var(--surface-light), -12px -12px 24px var(--secondary-bg);
+  border-radius: 32px;
+}
+
+.neumorph-inset {
+  background: var(--surface);
+  box-shadow: inset 8px 8px 16px var(--surface-light), inset -8px -8px 16px var(--secondary-bg);
+  border-radius: 24px;
+}
+
+.neumorph-inset-lg {
+  background: var(--surface);
+  box-shadow: inset 8px 8px 16px var(--surface-light), inset -8px -8px 16px var(--secondary-bg);
+  border-radius: 32px;
+}
+
+/* Typography */
+.architectural-heading {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.architectural-heading-light {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 200;
+  letter-spacing: -0.01em;
+  color: var(--text-secondary);
+  line-height: 1.1;
+}
+
+.architectural-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.architectural-text-light {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn-architectural {
+  background: var(--surface);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 32px;
+  padding: 16px 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 8px 8px 16px var(--surface-light), -8px -8px 16px var(--secondary-bg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-architectural:hover {
+  box-shadow: 12px 12px 24px var(--surface-light), -12px -12px 24px var(--secondary-bg);
+  transform: translateY(-2px);
+}
+
+.btn-architectural:active {
+  box-shadow: inset 8px 8px 16px var(--surface-light), inset -8px -8px 16px var(--secondary-bg);
+  transform: translateY(0);
+}
+
+.btn-architectural-outline {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--surface-light);
+  border-radius: 32px;
+  padding: 16px 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-architectural-outline:hover {
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: 8px 8px 16px var(--surface-light), -8px -8px 16px var(--secondary-bg);
+  transform: translateY(-2px);
+}
+
+/* Cards */
+.card-architectural {
+  background: var(--surface);
+  border-radius: 32px;
+  box-shadow: 8px 8px 16px var(--surface-light), -8px -8px 16px var(--secondary-bg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.card-architectural:hover {
+  box-shadow: 12px 12px 24px var(--surface-light), -12px -12px 24px var(--secondary-bg);
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Stats Cards */
+.stat-architectural {
+  background: var(--surface);
+  border-radius: 32px;
+  box-shadow: inset 8px 8px 16px var(--surface-light), inset -8px -8px 16px var(--secondary-bg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 32px;
+  text-align: center;
+}
+
+.stat-architectural:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: inset 12px 12px 24px var(--surface-light), inset -12px -12px 24px var(--secondary-bg);
+}
+
+/* Abstract Background Elements */
+.abstract-circle {
+  border: 1px solid var(--surface-dark);
+  border-radius: 50%;
+  opacity: 0.03;
+  position: absolute;
+}
+
+.abstract-line {
+  background: linear-gradient(90deg, transparent 0%, var(--surface-dark) 50%, transparent 100%);
+  height: 1px;
+  opacity: 0.05;
+  position: absolute;
+}
+
+.abstract-shape {
+  background: var(--accent);
+  border-radius: 2px;
+  opacity: 0.15;
+  position: absolute;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 12px 12px 24px var(--surface-light), -12px -12px 24px var(--secondary-bg);
+}
+
+.hover-scale {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .neumorph-light {
+    box-shadow: 4px 4px 8px var(--surface-light), -4px -4px 8px var(--secondary-bg);
+    border-radius: 20px;
+  }
+  
+  .neumorph-light-lg {
+    box-shadow: 6px 6px 12px var(--surface-light), -6px -6px 12px var(--secondary-bg);
+    border-radius: 24px;
+  }
+  
+  .card-architectural:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .btn-architectural {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .btn-architectural-outline {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Utility Classes */
+.text-architectural-primary {
+  color: var(--text-primary);
+}
+
+.text-architectural-secondary {
+  color: var(--text-secondary);
+}
+
+.text-architectural-muted {
+  color: var(--text-muted);
+}
+
+.bg-architectural-surface {
+  background: var(--surface);
+}
+
+.bg-architectural-primary {
+  background: var(--primary-bg);
+}
+
+.bg-architectural-secondary {
+  background: var(--secondary-bg);
+}
+
+/* Spacing */
+.architectural-spacing-xs {
+  padding: 8px;
+}
+
+.architectural-spacing-sm {
+  padding: 16px;
+}
+
+.architectural-spacing-md {
+  padding: 24px;
+}
+
+.architectural-spacing-lg {
+  padding: 32px;
+}
+
+.architectural-spacing-xl {
+  padding: 48px;
+}
+
+/* Borders */
+.border-architectural {
+  border: 1px solid var(--surface-light);
+}
+
+.border-architectural-soft {
+  border: 1px solid var(--surface-dark);
+  opacity: 0.3;
+}
+
+/* Shadows */
+.shadow-architectural {
+  box-shadow: 8px 8px 16px var(--surface-light), -8px -8px 16px var(--secondary-bg);
+}
+
+.shadow-architectural-lg {
+  box-shadow: 12px 12px 24px var(--surface-light), -12px -12px 24px var(--secondary-bg);
+}
+
+.shadow-architectural-inset {
+  box-shadow: inset 8px 8px 16px var(--surface-light), inset -8px -8px 16px var(--secondary-bg);
+}

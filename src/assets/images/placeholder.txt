@@ -1,0 +1,36 @@
+# Заглушки для изображений
+
+Здесь должны быть размещены изображения для проекта:
+
+## Архитектурные изображения
+- modern-building-1.jpg
+- modern-building-2.jpg  
+- modern-building-3.jpg
+- facade-materials-1.jpg
+- facade-materials-2.jpg
+- facade-materials-3.jpg
+
+## Ландшафтные изображения
+- landscape-design-1.jpg
+- landscape-design-2.jpg
+- landscape-design-3.jpg
+- garden-project-1.jpg
+- garden-project-2.jpg
+- garden-project-3.jpg
+
+## Планировки
+- apartment-layout-1.jpg
+- house-layout-1.jpg
+- office-layout-1.jpg
+- floor-plans/
+
+## Видео
+- architectural-showcase.mp4
+- facade-materials.mp4
+- landscape-process.mp4
+
+Все изображения должны быть оптимизированы для веб-использования.
+Рекомендуемые размеры:
+- Hero изображения: 1920x1080px
+- Карточки: 600x400px
+- Иконки: 64x64px

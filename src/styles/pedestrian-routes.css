@@ -1,0 +1,79 @@
+/* Стили для маршрутов движения пешеходов */
+
+/* Тёмная подложка для максимального контраста */
+.route-outline {
+  stroke: rgba(0, 0, 0, 0.9) !important;   /* тёмная чёрная подложка (0.9) */
+  stroke-width: 10px !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+  opacity: 1 !important;
+}
+
+/* Основные маршруты - яркий неоново-зелёный */
+.route {
+  stroke: #00ff88 !important;              /* яркий неоново-зелёный #00ff88 */
+  stroke-width: 8px !important;            /* толщина 8px */
+  stroke-linecap: round !important;        /* скругленные концы */
+  stroke-linejoin: round !important;       /* плавные углы */
+  fill: none !important;
+  
+  /* мощное зелёное свечение */
+  filter: drop-shadow(0 0 6px rgba(0, 255, 136, 0.9))
+          drop-shadow(0 0 12px rgba(0, 255, 136, 0.7))
+          drop-shadow(0 0 18px rgba(0, 255, 136, 0.5)) !important;
+  
+  opacity: 1 !important;                   /* полностью видимая */
+  transition: stroke 0.3s ease, opacity 0.3s ease, filter 0.3s ease !important;
+  stroke-dasharray: 10 5 !important;       /* пунктир 10 5 (как в требованиях) */
+  animation: routeMove 50s linear infinite !important; /* очень медленная анимация (50s) */
+}
+
+/* Плавное движение по линии - очень медленное (50s) */
+@keyframes routeMove {
+  from { 
+    stroke-dashoffset: 0;
+  }
+  to { 
+    stroke-dashoffset: -150; /* непрерывное плавное течение */
+  }
+}
+
+/* Пешеходы на маршруте */
+.person .body {
+  fill: #ff6b6b !important;                /* яркий цвет пешеходов */
+  filter: drop-shadow(0 0 3px rgba(255, 107, 107, 0.8)) !important;
+  transition: fill 0.3s ease !important;
+}
+
+/* Контейнер для пешеходного слоя */
+.pedestrian-overlay {
+  pointer-events: none !important;
+  z-index: 130 !important;
+}
+
+/* SVG сцена пешеходов */
+#pedestrianStage {
+  pointer-events: none !important;
+}
+
+/* Группа маршрутов */
+#routes {
+  pointer-events: none !important;
+}
+
+/* Группа людей */
+#people {
+  pointer-events: none !important;
+}
+
+/* Улучшение видимости при наведении */
+.route:hover {
+  stroke: #00ffaa !important;              /* ещё ярче при наведении */
+  filter: drop-shadow(0 0 8px rgba(0, 255, 170, 1))
+          drop-shadow(0 0 16px rgba(0, 255, 136, 0.9))
+          drop-shadow(0 0 24px rgba(0, 255, 136, 0.7)) !important;
+  opacity: 1 !important;
+  stroke-width: 9px !important;
+}
+

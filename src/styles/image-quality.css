@@ -1,0 +1,143 @@
+/* 🖼️ Глобальные стили для максимального качества изображений */
+
+/* Основные стили для всех изображений */
+img {
+  /* Улучшение качества изображения */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: high-quality;
+  
+  /* Предотвращение размытия при масштабировании */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  
+  /* Отключение сглаживания для четкости */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Отключение автоматического сжатия браузера */
+  -webkit-image-rendering: -webkit-optimize-contrast;
+  -moz-image-rendering: crisp-edges;
+  -ms-image-rendering: crisp-edges;
+  -o-image-rendering: crisp-edges;
+}
+
+/* Специальные стили для изображений планов */
+.plan-image,
+.plan-wrapper img,
+[class*="plan-"] img {
+  /* Максимальное качество для планов */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: high-quality;
+  
+  /* Предотвращение размытия при масштабировании */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  
+  /* Отключение сглаживания */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Принудительное отображение в оригинальном размере */
+  max-width: none !important;
+  max-height: none !important;
+  
+  /* Отключение автоматического сжатия */
+  -webkit-image-rendering: -webkit-optimize-contrast;
+  -moz-image-rendering: crisp-edges;
+  -ms-image-rendering: crisp-edges;
+  -o-image-rendering: crisp-edges;
+}
+
+/* Стили для SVG изображений */
+svg {
+  /* Улучшение качества SVG */
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Стили для canvas элементов */
+canvas {
+  /* Улучшение качества canvas */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* Отключение lazy loading для критически важных изображений */
+img[loading="eager"] {
+  /* Дополнительные стили для eager loading */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: high-quality;
+}
+
+/* Стили для изображений в модальных окнах */
+.modal img,
+[class*="modal"] img {
+  /* Максимальное качество в модалах */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: high-quality;
+  
+  /* Предотвращение размытия */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Стили для изображений в галереях */
+.gallery img,
+[class*="gallery"] img {
+  /* Качество для галерей */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: high-quality;
+}
+
+/* Стили для фоновых изображений */
+[style*="background-image"] {
+  /* Улучшение качества фоновых изображений */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* Медиа-запросы для разных плотностей экрана */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    /* Дополнительные стили для Retina дисплеев */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+  }
+}
+
+/* Стили для печати */
+@media print {
+  img {
+    /* Максимальное качество при печати */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: high-quality;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,835 @@
+/* Planning Solutions - Neumorphic Styles */
+
+/* Base neumorphic card */
+.neumorphic-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 
+    8px 8px 16px #DCE1E8,
+    -8px -8px 16px #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Sidebar panels - фиксированная высота */
+.neumorphic-card.sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* ✅ распределяем содержимое равномерно */
+  align-self: center;              /* ✅ центрируем саму панель */
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 1.25rem;
+  width: 100%;
+  height: 70vh;                    /* ✅ чтобы выровнялись по центру с планом */
+  overflow-y: auto;                /* ✅ скролл при необходимости */
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  gap: 0.8rem;
+}
+
+/* Floor container - flex layout с выравниванием */
+.floor-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ✅ все блоки выровнены по верхнему краю */
+  gap: 2.5rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 1rem 0;
+  height: auto;
+}
+
+/* Layout grid - оптимизированная сетка */
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 2.7fr 1fr;  /* ✅ центр шире, баланс по сторонам */
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 88vh;              /* ✅ точно под высоту экрана */
+  max-width: 95vw;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Центральный блок с планом - адаптивный элемент */
+.floor-plan-container {
+  width: 100%;
+  height: auto;                /* ✅ Адаптивная высота */
+  min-height: 60vh;            /* ✅ Минимальная высота */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;            /* ✅ Разрешаем прокрутку */
+  padding: 20px 0;             /* ✅ Отступы сверху и снизу */
+}
+
+/* Стиль самого блока плана - адаптивный */
+.floor-plan {
+  width: 100%;
+  height: auto;                /* ✅ Адаптивная высота */
+  min-height: 500px;           /* ✅ Минимальная высота */
+  background: #fff;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;            /* ✅ Разрешаем прокрутку */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  padding: 20px;               /* ✅ Внутренние отступы */
+  max-width: 100%;             /* ✅ Не выходим за границы */
+}
+
+/* Neumorphic button - raised state */
+.neumorphic-button {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 
+    6px 6px 12px #DCE1E8,
+    -6px -6px 12px #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.neumorphic-button:hover {
+  box-shadow: 
+    8px 8px 16px #DCE1E8,
+    -8px -8px 16px #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Neumorphic button - pressed state */
+.neumorphic-active {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 
+    inset 4px 4px 8px #DCE1E8,
+    inset -4px -4px 8px #FFFFFF,
+    0 0 0 2px rgba(95, 117, 141, 0.2);
+  border: 1px solid rgba(95, 117, 141, 0.1);
+  transform: translateY(1px);
+}
+
+.neumorphic-active:hover {
+  box-shadow: 
+    inset 6px 6px 12px #DCE1E8,
+    inset -6px -6px 12px #FFFFFF,
+    0 0 0 2px rgba(95, 117, 141, 0.3);
+}
+
+/* Neumorphic controls */
+.neumorphic-controls {
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 
+    6px 6px 12px #DCE1E8,
+    -6px -6px 12px #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Neumorphic display */
+.neumorphic-display {
+  background: #F6F7F9;
+  border-radius: 12px;
+  box-shadow: 
+    inset 2px 2px 4px #DCE1E8,
+    inset -2px -2px 4px #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Custom slider styles */
+.slider {
+  background: #F6F7F9;
+  border-radius: 8px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #5F758D;
+  box-shadow: 
+    2px 2px 4px #DCE1E8,
+    -2px -2px 4px #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    3px 3px 6px #DCE1E8,
+    -3px -3px 6px #FFFFFF;
+}
+
+.slider::-webkit-slider-thumb:active {
+  transform: scale(0.95);
+  box-shadow: 
+    inset 1px 1px 2px #DCE1E8,
+    inset -1px -1px 2px #FFFFFF;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #5F758D;
+  border: none;
+  box-shadow: 
+    2px 2px 4px #DCE1E8,
+    -2px -2px 4px #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb:active {
+  transform: scale(0.95);
+}
+
+/* Glass-like highlights */
+.neumorphic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 24px 24px 0 0;
+}
+
+/* Subtle inner glow for active elements */
+.neumorphic-active::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Smooth transitions */
+.neumorphic-button,
+.neumorphic-active,
+.neumorphic-controls {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus states for accessibility */
+.neumorphic-button:focus,
+.neumorphic-active:focus {
+  outline: none;
+  box-shadow: 
+    6px 6px 12px #DCE1E8,
+    -6px -6px 12px #FFFFFF,
+    0 0 0 3px rgba(95, 117, 141, 0.1);
+}
+
+/* Hover effects for interactive elements */
+.neumorphic-button:hover {
+  background: linear-gradient(135deg, #FFFFFF, #FAFBFC);
+}
+
+.neumorphic-active:hover {
+  background: linear-gradient(135deg, #F8F9FA, #FFFFFF);
+}
+
+/* Disabled state */
+.neumorphic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 
+    inset 2px 2px 4px #DCE1E8,
+    inset -2px -2px 4px #FFFFFF;
+}
+
+/* Plan wrapper - адаптивный контейнер для наложения слоев */
+.plan-wrapper {
+  position: relative;  /* ✅ КРИТИЧНО для абсолютного позиционирования слоев */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  overflow: visible;   /* ✅ Разрешаем прокрутку */
+  width: 100%;
+  height: auto;
+  max-height: none;
+  padding: 0;
+  transition: all 0.5s ease;
+  min-height: 400px;   /* ✅ Минимальная высота */
+}
+
+/* Изображение плана - адаптивное, без обрезки */
+.plan-image {
+  display: block;
+  max-width: 100%;         /* ✅ Не выходим за границы контейнера */
+  width: auto;              /* ✅ Адаптивная ширина */
+  height: auto;             /* ✅ Автоматическая высота для сохранения пропорций */
+  object-fit: contain;      /* ✅ Без обрезки, сохраняем пропорции */
+  object-position: center;  /* ✅ Центрируем строго по середине */
+  border-radius: 8px;       /* ✅ Скругленные углы */
+  transition: transform 0.4s ease;
+  margin: 0 auto;           /* ✅ Центрирование по горизонтали */
+  transform-origin: center center; /* ✅ Точка масштабирования */
+  
+  /* Улучшение качества изображения */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: high-quality;
+  
+  /* Предотвращение размытия при масштабировании */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  
+  /* Отключение сглаживания для четкости */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hover эффект масштабирования отключен */
+
+/* Стили для слоев наложения - улучшение качества */
+.plan-wrapper img[class*="absolute"] {
+  /* Улучшение качества изображения для слоев */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: high-quality;
+  
+  /* Предотвращение размытия при масштабировании */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  
+  /* Отключение сглаживания для четкости */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Масштабированный блок плана */
+.plan-container {
+  animation: fadeUp 0.6s ease forwards;
+  transform-origin: center center; /* центрирование при масштабировании */
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes fadeUp {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+/* Обертка для плана - чтобы чертёж не выходил за границы окна */
+.plan-viewer-wrapper {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Контейнер плана с колоночным расположением (план + панель масштаба) - адаптивный */
+.plan-wrapper-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  /* ✅ Выравнивание по верху */
+  gap: 20px;
+  width: 100%;
+  height: auto;                 /* ✅ Адаптивная высота */
+  min-height: 60vh;            /* ✅ Минимальная высота */
+  overflow-y: auto;            /* ✅ Вертикальная прокрутка при необходимости */
+}
+
+/* Панель управления масштабом под планом */
+.zoom-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 8px 12px;
+  z-index: 5;
+}
+
+.plan-scaled {
+  will-change: transform;
+}
+
+/* Hover эффект масштабирования отключен */
+
+/* Кастомный scrollbar для боковых панелей */
+.sidebar-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-panel::-webkit-scrollbar-track {
+  background: rgba(220, 225, 232, 0.2);
+  border-radius: 10px;
+}
+
+.sidebar-panel::-webkit-scrollbar-thumb {
+  background: rgba(95, 117, 141, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(95, 117, 141, 0.5);
+}
+
+/* Большие экраны - полный масштаб */
+@media (min-width: 1600px) {
+  .plan-scaled {
+    transform: scale(1.8) !important;
+    maxWidth: 950px;
+  }
+  
+  /* Hover эффект масштабирования отключен */
+  
+  .planning-layout {
+    padding: 3rem 6rem !important;
+  }
+}
+
+/* Средние-большие экраны */
+@media (min-width: 1400px) and (max-width: 1599px) {
+  .plan-scaled {
+    transform: scale(1.6) !important;
+    maxWidth: 900px;
+  }
+  
+  /* Hover эффект масштабирования отключен */
+}
+
+/* Средние экраны - уменьшенный масштаб */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .plan-scaled {
+    transform: scale(1.4) !important;
+    maxWidth: 850px;
+  }
+  
+  /* Hover эффект масштабирования отключен */
+  
+  .planning-layout {
+    padding: 2.5rem 4rem !important;
+    gap: 2.5rem !important;
+  }
+}
+
+/* Планшеты большие */
+@media (max-width: 1199px) and (min-width: 1025px) {
+  .plan-scaled {
+    transform: scale(1.2) !important;
+    maxWidth: 800px;
+  }
+  
+  /* Hover эффект масштабирования отключен */
+  
+  .planning-layout {
+    padding: 2rem 3rem !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Планшеты - адаптация под вертикальный layout */
+@media (max-width: 1024px) {
+  .planning-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    gap: 1.5rem !important;
+    padding: 2rem 1.5rem !important;
+    min-height: auto !important;
+  }
+
+  .floor-plan-container {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 50vh !important;
+    padding: 10px 0 !important;
+    overflow: visible !important;
+  }
+
+  .neumorphic-card.sidebar-panel {
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 60vh !important;
+    position: relative !important;
+    top: 0 !important;
+  }
+  
+  .plan-scaled {
+    transform: scale(1) !important;
+    max-width: 95vw !important;
+    transform-origin: center top !important;
+  }
+  
+  /* Hover эффект масштабирования отключен */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .neumorphic-card {
+    border-radius: 16px;
+    box-shadow: 
+      4px 4px 8px #DCE1E8,
+      -4px -4px 8px #FFFFFF;
+  }
+  
+  .neumorphic-button {
+    border-radius: 12px;
+    box-shadow: 
+      3px 3px 6px #DCE1E8,
+      -3px -3px 6px #FFFFFF;
+  }
+  
+  .neumorphic-active {
+    box-shadow: 
+      inset 2px 2px 4px #DCE1E8,
+      inset -2px -2px 4px #FFFFFF,
+      0 0 0 1px rgba(95, 117, 141, 0.2);
+  }
+  
+  .plan-wrapper {
+    max-width: 95vw;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    overflow: visible;
+  }
+  
+  .plan-image {
+    border-radius: 0.5rem;
+  }
+
+  /* Мобильные стили для боковых панелей */
+  .neumorphic-card.sidebar-panel {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+
+  .floor-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  /* Layout grid на мобильных - вертикальный */
+  .layout-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    height: auto;
+  }
+
+  /* План на мобильных - адаптивный */
+  .floor-plan-container {
+    width: 100%;
+    height: auto;         /* ✅ Адаптивная высота */
+    min-height: 50vh;     /* ✅ Минимальная высота */
+    overflow: visible;    /* ✅ Разрешаем прокрутку */
+  }
+
+  /* Боковые панели на мобильных - компактные */
+  .neumorphic-card.sidebar-panel {
+    align-self: stretch;
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    font-size: 1rem;
+  }
+
+  /* Изображение плана на мобильных */
+  .plan-image {
+    height: 100%;
+  }
+
+  /* Hover эффект масштабирования отключен */
+}
+
+/* ========================================
+   Анимация движения пешеходов
+   ======================================== */
+
+/* Общая анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Контейнер с SVG-анимацией */
+.pedestrian-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 130;
+  pointer-events: none;
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+/* Маршруты — яркие, видимые линии */
+.route {
+  fill: none;
+  stroke: rgba(0, 220, 255, 0.85);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 8 10;
+  animation: routeFlow 1.6s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(0, 220, 255, 0.8));
+}
+
+/* Анимация движения линии */
+@keyframes routeFlow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+/* Пешеходы — яркие анимированные точки */
+.person .body {
+  fill: #ffcc00;
+  r: 4;
+  filter: drop-shadow(0 0 6px rgba(255, 200, 0, 0.9));
+  animation: walkPulse 1.2s ease-in-out infinite;
+}
+
+/* Лёгкое дыхание точек */
+@keyframes walkPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* ========================================
+   Стрелка навигации вниз
+   ======================================== */
+
+/* Основные стили стрелки */
+.navigation-arrow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation-arrow:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.navigation-arrow:hover .arrow-icon {
+  color: '#3B4A5C' !important;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .navigation-arrow {
+    width: 32px !important;
+    height: 32px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+  
+  .navigation-arrow .arrow-icon {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .navigation-arrow {
+    width: 28px !important;
+    height: 28px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+  
+  .navigation-arrow .arrow-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* ========================================
+   Полноэкранный режим
+   ======================================== */
+
+/* Стили для полноэкранного контейнера */
+#plan-container:fullscreen {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#plan-container:-webkit-full-screen {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#plan-container:-moz-full-screen {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#plan-container:-ms-fullscreen {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Стили для изображения в полноэкранном режиме */
+#plan-container:fullscreen .plan-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#plan-container:-webkit-full-screen .plan-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#plan-container:-moz-full-screen .plan-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#plan-container:-ms-fullscreen .plan-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для панели управления в полноэкранном режиме */
+.zoom-controls[style*="position: fixed"] {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Стили для кнопки полноэкранного режима в активном состоянии */
+.neumorphic-button[style*="background: linear-gradient"] {
+  animation: buttonActivate 0.3s ease-out;
+}
+
+@keyframes buttonActivate {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Адаптивность для мобильных устройств в полноэкранном режиме */
+@media (max-width: 768px) {
+  #plan-container:fullscreen {
+    padding: 10px;
+  }
+  
+  #plan-container:-webkit-full-screen {
+    padding: 10px;
+  }
+  
+  #plan-container:-moz-full-screen {
+    padding: 10px;
+  }
+  
+  #plan-container:-ms-fullscreen {
+    padding: 10px;
+  }
+  
+  .zoom-controls[style*="position: fixed"] {
+    bottom: 10px !important;
+    padding: 8px 16px !important;
+  }
+}

@@ -1,0 +1,506 @@
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Убираем белую полосу/подложку под слайдером */
+.slider-background,
+.slider-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.home-content {
+  text-align: center;
+  padding: 80px 20px;
+  color: #333;
+}
+
+/* === Основной текст страницы === */
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  font-family: 'Manrope', sans-serif;
+}
+
+.page-description {
+  margin-bottom: 60px; /* увеличиваем расстояние до карточек */
+  font-size: 1.8rem; /* увеличено в 2 раза */
+  color: #555;
+  line-height: 1.6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Слайдер === */
+.slider {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important; /* Полностью прозрачный фон */
+  box-shadow: none !important; /* Убираем любую тень */
+  border: none; /* Убираем границы */
+}
+
+/* Убираем белую подложку до и после слайдера */
+.slider::before,
+.slider::after {
+  background: transparent !important;
+  box-shadow: none !important;
+  content: none;
+}
+
+.slide-track {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  overflow: visible; /* Чтобы стрелки не обрезались */
+  background: transparent !important; /* Полностью прозрачный */
+  transition: transform 1.2s ease-in-out; /* плавное движение всей ленты */
+}
+
+/* Убираем любые псевдоэлементы */
+.slide-track::before,
+.slide-track::after {
+  background: transparent !important;
+  content: none;
+}
+
+.slide {
+  position: absolute;
+  width: 55%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out; /* плавный замедленный переход */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  color: #fff;
+  max-height: 70%;
+  overflow: hidden;
+}
+
+.slide-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+  padding: 20px 30px 10px 30px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25)); /* смягчённый градиент */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* мягкая тень */
+}
+
+/* Контент карточек — адаптация под длинные тексты и таблицу */
+.slide-content {
+  position: relative;
+  width: 100%;
+  padding: 10px 30px 30px 30px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.05)); /* смягчённый градиент */
+  color: white;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25); /* мягкая тень вместо резкой */
+  overflow-y: auto;
+  max-height: 350px;
+  transition: background 0.3s ease;
+}
+
+.slide-content p,
+.slide-content table {
+  font-size: 0.65rem;
+  line-height: 1.4;
+  white-space: pre-line;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* текст стал легче читаем */
+}
+
+.slide-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.slide-content table th,
+.slide-content table td {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px;
+  text-align: left;
+}
+
+.slide-content table th {
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Скроллбар для длинного контента */
+.slide-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slide-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.slide-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.slide-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Позиции слайдов */
+.slide.center {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.slide.left {
+  transform: translateX(-70%) scale(0.8);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.slide.right {
+  transform: translateX(70%) scale(0.8);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.slide.hidden {
+  opacity: 0;
+  transform: scale(0.5);
+  z-index: 1;
+}
+
+/* === Стрелки переключения === */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  font-size: 2rem;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  z-index: 20;
+}
+
+.arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Переносим стрелки к краям контейнера */
+.arrow.left {
+  left: -140px; /* Сдвигаем дальше от карточек */
+}
+
+.arrow.right {
+  right: -140px; /* Аналогично справа */
+}
+
+/* === Кнопка управления === */
+.play-toggle {
+  margin-top: 40px;
+  padding: 12px 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-toggle:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.play-toggle:active {
+  transform: translateY(0);
+}
+
+/* === Адаптивность === */
+@media (max-width: 1024px) {
+  .slider {
+    max-width: 900px;
+  }
+
+  .slide {
+    width: 60%;
+  }
+
+  .slide.left {
+    transform: translateX(-75%) scale(0.75);
+  }
+
+  .slide.right {
+    transform: translateX(75%) scale(0.75);
+  }
+
+  .arrow {
+    width: 58px;
+    height: 58px;
+  }
+
+  .arrow.left {
+    left: -90px; /* Чуть ближе на планшетах */
+  }
+
+  .arrow.right {
+    right: -90px; /* Чуть ближе на планшетах */
+  }
+  
+  .page-description {
+    font-size: 1.4rem; /* Адаптация для планшетов */
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .page-description {
+    font-size: 1.1rem; /* Уменьшаем, но все равно крупнее, чем было */
+    margin-bottom: 40px;
+  }
+
+  .slider {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .slide-track {
+    height: 400px;
+  }
+
+  .slide {
+    width: 75%;
+  }
+
+  .slide.left,
+  .slide.right {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  .slide-info {
+    max-height: 60%;
+  }
+
+  .slide-info h2 {
+    font-size: 1.1rem;
+    padding: 15px 20px 8px 20px;
+  }
+
+  .slide-content {
+    padding: 8px 20px 20px 20px;
+    max-height: 250px;
+  }
+
+  .slide-content p,
+  .slide-content table {
+    font-size: 0.6rem;
+  }
+
+  .slide-content table th,
+  .slide-content table td {
+    padding: 4px;
+    font-size: 0.55rem;
+  }
+
+  .arrow {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+
+  .arrow.left {
+    left: 10px; /* Возвращаем ближе к карточке на мобильных */
+  }
+
+  .arrow.right {
+    right: 10px; /* Возвращаем ближе к карточке на мобильных */
+  }
+
+  .play-toggle {
+    font-size: 14px;
+    padding: 10px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-content {
+    padding: 60px 15px;
+  }
+
+  .slide-track {
+    height: 350px;
+  }
+
+  .slide {
+    width: 85%;
+  }
+
+  .slide-info {
+    max-height: 55%;
+  }
+
+  .slide-info h2 {
+    font-size: 0.95rem;
+    padding: 12px 15px 6px 15px;
+  }
+
+  .slide-content {
+    padding: 6px 15px 15px 15px;
+    max-height: 200px;
+  }
+
+  .slide-content p,
+  .slide-content table {
+    font-size: 0.55rem;
+  }
+
+  .slide-content table th,
+  .slide-content table td {
+    padding: 3px;
+    font-size: 0.5rem;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+}
+
+/* === Стили для секции колонок === */
+.column-section-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.column-section-table th,
+.column-section-table td {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  text-align: left;
+  color: #333;
+}
+
+.column-section-table th {
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Оптимизация для анимаций масштабирования */
+.column-section-card {
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.column-section-image {
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+/* Адаптивность для секции колонок */
+@media (max-width: 768px) {
+  .column-section-card {
+    flex-direction: column !important;
+    padding: 1.5rem !important;
+    margin-bottom: 4rem !important;
+  }
+
+  .column-section-image {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .column-section-text h2 {
+    font-size: 1.4rem !important;
+  }
+
+  .column-section-text {
+    font-size: 0.85rem !important;
+  }
+
+  .column-section-table {
+    font-size: 0.75rem;
+  }
+
+  .column-section-table th,
+  .column-section-table td {
+    padding: 0.35rem;
+  }
+}
+
+/* Оптимизация для мобильных устройств */
+@media (max-width: 480px) {
+  .home-page {
+    /* Отключаем fixed фон на мобильных для производительности */
+    background-attachment: scroll;
+  }
+  
+  .column-section-card {
+    /* Легче анимации на слабых устройствах */
+    will-change: auto;
+  }
+  
+  .column-section-image {
+    will-change: auto;
+  }
+}
+
